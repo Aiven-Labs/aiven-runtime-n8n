@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: "traefik"
+    build: ./docker/traefik
     restart: always
     command:
       - "--api.insecure=true"
@@ -21,7 +21,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   n8n:
-    image: n8nio/n8n
+    build: ./docker/n8n
     restart: always
     ports:
       - "127.0.0.1:5678:5678"
